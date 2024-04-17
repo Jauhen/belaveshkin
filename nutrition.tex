@@ -1,0 +1,216 @@
+\documentclass[ebook,10pt,openany]{memoir}
+
+\usepackage{fontspec}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\usepackage{eso-pic}
+\usepackage{needspace}
+\usepackage{awesomebox}
+\usepackage{setspace}
+\usepackage[version=4,arrows=pgf-filled,textfontname=sffamily,mathfontname=mathsf]{mhchem}
+\defaultfontfeatures{Ligatures={TeX}}
+\usepackage[english,belarusian]{babel}
+\hypersetup{
+    colorlinks=true, % make the links colored
+    linkcolor=black, % color TOC links in black
+    urlcolor=red, % color URLs in red
+    linktoc=all, % 'all' will create links for everything in the TOC
+    pdftitle={Што і калі есьці.},
+}
+
+\setmainfont[
+  ItalicFont=SourceSerif4-Italic,%
+  BoldFont=SourceSerifPro-Bold,%
+]{SourceSerifPro-Regular}
+\setsansfont{SourceSansPro-Regular}
+\newfontfamily\TitlePageHuge[SizeFeatures={Size=40}]{SourceSerifPro-Regular}
+
+\marginparwidth = 0 mm
+\oddsidemargin = 0 mm
+\marginparsep = 0 mm
+\marginparpush = 0 mm
+\oddsidemargin = 0.15 in
+\evensidemargin = 0.15 in
+\textwidth=4.5 true in
+\textheight=7 true in
+\topmargin=-8mm
+\hoffset=-10 mm
+\headsep=5mm
+\setlength{\headheight}{14pt}
+
+\tolerance=3000
+\hbadness=4000
+\emergencystretch 0.5em
+
+\raggedbottom
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
+
+\spaceskip 4pt plus 2pt minus 1pt
+
+\addto\captionsbelarusian{\renewcommand{\chaptername}{Правіла}}
+\addto\captionsbelarusian{\renewcommand{\contentsname}{Зьмест}}
+\makeatletter
+\newlength{\numberheight}
+\newlength{\barlength}
+\makechapterstyle{ezha}{%
+  \setlength{\afterchapskip}{30pt}
+  \renewcommand*{\chapterheadstart}{\vspace*{-20pt}}
+  \renewcommand*{\afterchapternum}{\par\nobreak\vskip 25pt}
+  \renewcommand*{\chapnamefont}{\normalfont\LARGE\flushright}
+  \renewcommand*{\chapnumfont}{\normalfont\HUGE}
+  \renewcommand*{\chaptitlefont}{\normalfont\HUGE\bfseries\flushright}
+  \renewcommand*{\printchaptername}{%
+  }
+  \renewcommand*{\chapternamenum}{}
+  \setlength{\beforechapskip}{18mm}
+  \setlength{\midchapskip}{\paperwidth}
+  \addtolength{\midchapskip}{-\textwidth}
+  \addtolength{\midchapskip}{-\spinemargin}
+  \addtolength{\midchapskip}{1cm}
+  \renewcommand*{\printchapternum}{%
+    \flushright\makebox[0pt][r]{%
+      \normalfont\LARGE\MakeUppercase{\@chapapp}%
+      \resizebox{!}{18mm}{\chapnumfont \thechapter }%
+      \hspace{.8em}%
+      \rule{\midchapskip}{\beforechapskip}\hspace{-\midchapskip}%
+    }}%
+  \makeoddfoot{plain}{}{\thepage}{}%
+  \makeevenfoot{plain}{}{\thepage}{}%
+}
+\makeatother
+\chapterstyle{ezha}
+
+\setsecnumdepth{chapter}
+
+\renewcommand{\part}[1]{
+  \clearpage
+  \addcontentsline{toc}{part}{#1}
+  \thispagestyle{empty}
+  \begin{vplace}
+    \begin{center}
+      \begin{Spacing}{6.0}
+      {\TitlePageHuge #1}
+      \end{Spacing}
+    \end{center}
+  \end{vplace}
+}
+\renewcommand{\partpageend}{
+  \afterpartskip
+}
+
+\setsubsecindent{\parindent}%
+\setsubsecheadstyle{\normalfont\normalsize\bfseries}
+\setbeforesubsecskip{0pt}
+\setaftersubsecskip{-1em plus -1ex minus -0.5ex}
+\renewcommand*{\cftchapterfont}{\normalfont}
+\renewcommand*{\cftchaptername}{Правіла }
+\renewcommand*{\cftchapterpagefont}{\normalfont}
+\renewcommand*{\cftchapteraftersnum}{.~~}
+\renewcommand*{\cftchapterleader}{\cftchapterfont\cftdotfill{\cftchapterdotsep}}
+\renewcommand*{\cftchapterdotsep}{\cftdotsep}
+\cftpagenumbersoff{part}
+\makeatletter
+\setlength{\cftbeforepartskip}{10pt \@plus\p@}
+\setlength{\cftbeforechapterskip}{0em \@plus\p@}
+\makeatother
+\makeevenhead{headings}{\thepage}{}{\small\leftmark}
+\makeoddhead{headings}{\small\rightmark}{}{\thepage}
+
+\setlength{\aweboxvskip}{3mm}
+\setlength{\aweboxleftmargin}{0.025\linewidth}
+\renewcommand{\tipbox}[1]{\awesomebox[gray]{0pt}{\faLightbulb}{gray}{\emph{#1}}}
+
+\newcommand{\BackgroundPic}{%
+\put(0,0){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\hspace{2.00mm}
+\includegraphics[height=\paperheight,keepaspectratio,clip]{nutrition/cover.png}%
+\vfill
+}}}
+
+\author{Андрусь Белавешкін}
+\title{%
+  Што і калі есьці. \\
+  \large Як знайсьці залатую сярэдзіну між голадам і пераяданьнем}
+\date{2020 Пераклад 2022}
+
+\begin{document}
+
+\begin{titlingpage}
+  \AddToShipoutPicture*{\BackgroundPic}
+\end{titlingpage}
+~
+\pagestyle{empty}
+
+\cleartooddpage
+\begin{titlingpage}
+\begin{center}
+  \vspace{1cm}
+  {\HUGE Андрусь\ \ Белавешкін}
+\end{center}
+\vspace{2cm}
+\begin{center}    
+  {\TitlePageHuge 
+  Што\ \ і\ \ калі\ \ есьці.}\\[2em]
+    \rule{0.70\textwidth}{1pt} \\[2em]
+    {\Huge Як\ \ знайсьці\ \ залатую\ \ сярэдзіну між\ \ голадам\ \ і\ \ пераяданьнем}
+\end{center}
+\vspace{9cm}
+\begin{center}
+  2020, Пераклад 2022
+\end{center}
+
+\include{nutrition/summary}
+
+\end{titlingpage}
+
+\pagestyle{headings}
+\setcounter{page}{3}
+\setcounter{tocdepth}{0}
+\tableofcontents*
+\clearpage
+
+\include{nutrition/intro}
+
+\part{Асноўныя правілы рэжыму харчаваньня}
+
+\include{nutrition/chapter1}
+\include{nutrition/chapter2}
+\include{nutrition/chapter3}
+\include{nutrition/chapter4}
+\include{nutrition/chapter5}
+\include{nutrition/chapter6}
+
+\part{Удасканаленьне рэжыму}
+
+\include{nutrition/chapter7}
+\include{nutrition/chapter8}
+\include{nutrition/chapter9}
+\include{nutrition/chapter10}
+\include{nutrition/chapter11}
+\include{nutrition/chapter12}
+
+\part{Асноўныя правілы выбару прадуктаў}
+
+\include{nutrition/chapter13}
+\include{nutrition/chapter14}
+\include{nutrition/chapter15}
+\include{nutrition/chapter16}
+\include{nutrition/chapter17}
+\include{nutrition/chapter18}
+
+\part{Прадукты}
+
+\include{nutrition/chapter19}
+\include{nutrition/chapter20}
+\include{nutrition/chapter21}
+\include{nutrition/chapter22}
+\include{nutrition/chapter23}
+\include{nutrition/chapter24}
+
+\end{document}
