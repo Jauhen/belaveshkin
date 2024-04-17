@@ -15,9 +15,10 @@
     linkcolor=black, % color TOC links in black
     urlcolor=red, % color URLs in red
     linktoc=all, % 'all' will create links for everything in the TOC
-    pdftitle={Што і калі есьці.},
+    % pdftitle={Што і калі есьці.},
 }
 
+%%%%%  FONTS  %%%%%
 \setmainfont[
   ItalicFont=SourceSerif4-Italic,%
   BoldFont=SourceSerifPro-Bold,%
@@ -25,6 +26,7 @@
 \setsansfont{SourceSansPro-Regular}
 \newfontfamily\TitlePageHuge[SizeFeatures={Size=40}]{SourceSerifPro-Regular}
 
+%%%%%  PAGE DIMENTIONS  %%%%%
 \marginparwidth = 0 mm
 \oddsidemargin = 0 mm
 \marginparsep = 0 mm
@@ -38,6 +40,7 @@
 \headsep=5mm
 \setlength{\headheight}{14pt}
 
+%%%%%  TYPOGRAPHICS  %%%%%
 \tolerance=3000
 \hbadness=4000
 \emergencystretch 0.5em
@@ -49,12 +52,65 @@
 
 \spaceskip 4pt plus 2pt minus 1pt
 
-\addto\captionsbelarusian{\renewcommand{\chaptername}{Правіла}}
-\addto\captionsbelarusian{\renewcommand{\contentsname}{Зьмест}}
+%%%%%  HEADING  %%%%%
+\makeevenhead{headings}{\thepage}{}{\small\leftmark}
+\makeoddhead{headings}{\small\rightmark}{}{\thepage}
 
-\newlength{\numberheight}
-\newlength{\barlength}
-\makechapterstyle{ezha}{%
+%%%%%  COVER PAGE  %%%%%
+\newcommand{\CoverPic}[1]{%
+\begin{titlingpage}
+  \AddToShipoutPicture*{
+    \put(0,0){%
+      \parbox[b][\paperheight]{\paperwidth}{%
+        \vfill%
+        \hspace{2.00mm}%
+        \includegraphics[height=\paperheight,keepaspectratio,clip]{#1}%
+        \vfill%
+      }%
+    }%
+  }
+\end{titlingpage}
+~
+\pagestyle{empty}}
+
+%%%%  TITLE PAGE  %%%%%
+\newcommand{\TitlePageFormat}[4]{
+  \begin{center}
+    \vspace{1cm}
+    {\HUGE #1}
+  \end{center}
+  \vspace{2cm}
+  \begin{center}    
+    {\TitlePageHuge 
+    #2}\\[2em]
+      \rule{0.70\textwidth}{1pt} \\[2em]
+      {\Huge #3}
+  \end{center}
+  \vspace{9cm}
+  \begin{center}
+    #4
+  \end{center}  
+}
+
+%%%% PART HEADING %%%%%
+\renewcommand{\part}[1]{
+  \clearpage
+  \addcontentsline{toc}{part}{#1}
+  \thispagestyle{empty}
+  \begin{vplace}
+    \begin{center}
+      \begin{Spacing}{6.0}
+      {\TitlePageHuge #1}
+      \end{Spacing}
+    \end{center}
+  \end{vplace}
+}
+\renewcommand{\partpageend}{
+  \afterpartskip
+}
+
+%%%%%  CHAPTER HEADING  %%%%%
+\makechapterstyle{belaveshkin}{%
   \setlength{\afterchapskip}{30pt}
   \renewcommand*{\chapterheadstart}{\vspace*{-20pt}}
   \renewcommand*{\afterchapternum}{\par\nobreak\vskip 25pt}
@@ -79,32 +135,22 @@
   \makeoddfoot{plain}{}{\thepage}{}%
   \makeevenfoot{plain}{}{\thepage}{}%
 }
-\chapterstyle{ezha}
+\chapterstyle{belaveshkin}
 
-\setsecnumdepth{chapter}
+%%%%%  SECTION HEADING  %%%%%
+\setsecnumdepth{section}
+% \setsubsecindent{\parindent}%
+% \setsubsecheadstyle{\normalfont\normalsize\bfseries}
+% \setbeforesubsecskip{0pt}
+% \setaftersubsecskip{-1em plus -1ex minus -0.5ex}
 
-\renewcommand{\part}[1]{
-  \clearpage
-  \addcontentsline{toc}{part}{#1}
-  \thispagestyle{empty}
-  \begin{vplace}
-    \begin{center}
-      \begin{Spacing}{6.0}
-      {\TitlePageHuge #1}
-      \end{Spacing}
-    \end{center}
-  \end{vplace}
-}
-\renewcommand{\partpageend}{
-  \afterpartskip
-}
+%%%%%  TIPBOX  %%%%%
+\setlength{\aweboxvskip}{3mm}
+\setlength{\aweboxleftmargin}{0.025\linewidth}
+\renewcommand{\tipbox}[1]{\awesomebox[gray]{0pt}{\faLightbulb}{gray}{\emph{#1}}}
 
-\setsubsecindent{\parindent}%
-\setsubsecheadstyle{\normalfont\normalsize\bfseries}
-\setbeforesubsecskip{0pt}
-\setaftersubsecskip{-1em plus -1ex minus -0.5ex}
+%%%%%  CONTENT PAGE  %%%%%
 \renewcommand*{\cftchapterfont}{\normalfont}
-\renewcommand*{\cftchaptername}{Правіла }
 \renewcommand*{\cftchapterpagefont}{\normalfont}
 \renewcommand*{\cftchapteraftersnum}{.~~}
 \renewcommand*{\cftchapterleader}{\cftchapterfont\cftdotfill{\cftchapterdotsep}}
@@ -112,43 +158,6 @@
 \cftpagenumbersoff{part}
 \setlength{\cftbeforepartskip}{10pt \@plus\p@}
 \setlength{\cftbeforechapterskip}{0em \@plus\p@}
-\makeevenhead{headings}{\thepage}{}{\small\leftmark}
-\makeoddhead{headings}{\small\rightmark}{}{\thepage}
 
-\setlength{\aweboxvskip}{3mm}
-\setlength{\aweboxleftmargin}{0.025\linewidth}
-\renewcommand{\tipbox}[1]{\awesomebox[gray]{0pt}{\faLightbulb}{gray}{\emph{#1}}}
-
-\newcommand{\CoverPic}[1]{%
-\begin{titlingpage}
-  \AddToShipoutPicture*{
-    \put(0,0){%
-      \parbox[b][\paperheight]{\paperwidth}{%
-        \vfill%
-        \hspace{2.00mm}%
-        \includegraphics[height=\paperheight,keepaspectratio,clip]{#1}%
-        \vfill%
-      }%
-    }%
-  }
-\end{titlingpage}
-~
-\pagestyle{empty}}
-
-\newcommand{\TitlePageFormat}[4]{
-  \begin{center}
-    \vspace{1cm}
-    {\HUGE #1}
-  \end{center}
-  \vspace{2cm}
-  \begin{center}    
-    {\TitlePageHuge 
-    #2}\\[2em]
-      \rule{0.70\textwidth}{1pt} \\[2em]
-      {\Huge #3}
-  \end{center}
-  \vspace{9cm}
-  \begin{center}
-    #4
-  \end{center}  
-}
+%%%%%  TARASHKEVICA  %%%%%
+\addto\captionsbelarusian{\renewcommand{\contentsname}{Зьмест}}
