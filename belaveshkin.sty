@@ -55,6 +55,7 @@
 %%%%%  HEADING  %%%%%
 \makeevenhead{headings}{\thepage}{}{\small\leftmark}
 \makeoddhead{headings}{\small\rightmark}{}{\thepage}
+% \nouppercaseheads
 
 %%%%%  COVER PAGE  %%%%%
 \newcommand{\CoverPic}[1]{%
@@ -92,7 +93,7 @@
   \end{center}  
 }
 
-%%%% PART HEADING %%%%%
+%%%% PART PAGE %%%%%
 \renewcommand{\part}[1]{
   \clearpage
   \addcontentsline{toc}{part}{#1}
@@ -109,7 +110,7 @@
   \afterpartskip
 }
 
-%%%%%  CHAPTER HEADING  %%%%%
+%%%%%  CHAPTER PAGE  %%%%%
 \makechapterstyle{belaveshkin}{%
   \setlength{\afterchapskip}{30pt}
   \renewcommand*{\chapterheadstart}{\vspace*{-20pt}}
