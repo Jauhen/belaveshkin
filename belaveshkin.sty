@@ -140,10 +140,8 @@
 
 %%%%%  SECTION HEADING  %%%%%
 \setsecnumdepth{section}
-% \setsubsecindent{\parindent}%
-% \setsubsecheadstyle{\normalfont\normalsize\bfseries}
-% \setbeforesubsecskip{0pt}
-% \setaftersubsecskip{-1em plus -1ex minus -0.5ex}
+\renewcommand*{\thesection}{\arabic{section}}
+\setsecnumformat{\csname the#1\endcsname.~~}
 
 %%%%%  TIPBOX  %%%%%
 \setlength{\aweboxvskip}{3mm}
@@ -151,14 +149,19 @@
 \renewcommand{\tipbox}[1]{\awesomebox[gray]{0pt}{\faLightbulb}{gray}{\emph{#1}}}
 
 %%%%%  CONTENT PAGE  %%%%%
+% Part
+\cftpagenumbersoff{part}
+\setlength{\cftbeforepartskip}{10pt \@plus\p@}
+% Chapter
 \renewcommand*{\cftchapterfont}{\normalfont}
 \renewcommand*{\cftchapterpagefont}{\normalfont}
 \renewcommand*{\cftchapteraftersnum}{.~~}
 \renewcommand*{\cftchapterleader}{\cftchapterfont\cftdotfill{\cftchapterdotsep}}
 \renewcommand*{\cftchapterdotsep}{\cftdotsep}
-\cftpagenumbersoff{part}
-\setlength{\cftbeforepartskip}{10pt \@plus\p@}
 \setlength{\cftbeforechapterskip}{0em \@plus\p@}
+% Section
+\renewcommand{\cftsectionaftersnum}{.}
+\cftsetindents{section}{2em}{1.75em}
 
 %%%%%  TARASHKEVICA  %%%%%
 \addto\captionsbelarusian{\renewcommand{\contentsname}{Зьмест}}
