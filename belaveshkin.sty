@@ -143,6 +143,8 @@
 \renewcommand*{\thesection}{\arabic{section}}
 \setsecnumformat{\csname the#1\endcsname.~~}
 
+\renewcommand*{\subsectionmark}[1]{\markright{\MakeUppercase{#1}}}
+
 %%%%%  TIPBOX  %%%%%
 \setlength{\aweboxvskip}{3mm}
 \setlength{\aweboxleftmargin}{0.025\linewidth}
