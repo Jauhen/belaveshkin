@@ -2,7 +2,7 @@
 
 \usepackage{belaveshkin}
 \addto\captionsbelarusian{\renewcommand{\chaptername}{Правіла}}
-\renewcommand*{\cftchaptername}{Правіла }
+\renewcommand*{\cftchaptername}{Правіла~}
 
 \author{Андрусь Белавешкін}
 \title{Што і калі есьці}
@@ -25,7 +25,7 @@
 
 \pagestyle{headings}
 \setcounter{page}{3}
-\setcounter{tocdepth}{0}
+\setcounter{tocdepth}{1}
 \tableofcontents*
 \clearpage
 
@@ -66,5 +66,15 @@
 \include{nutrition/chapter22}
 \include{nutrition/chapter23}
 \include{nutrition/chapter24}
+
+\setcounter{chapter}{3}
+% change the chaptername from now on
+\renewcommand\chaptername{Разьдзел }
+% insert the change into the toc file
+\addtocontents{toc}{\protect\renewcommand\protect\cftchaptername{Разьдзел~}}
+\renewcommand{\theHchapter}{willpower\thechapter}
+
+\part{Бонус: частка~з~кнігі Воля да жыцьця}
+\include{willpower/chapter4}
 
 \end{document}
