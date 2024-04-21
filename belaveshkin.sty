@@ -147,10 +147,19 @@
 
 \renewcommand*{\subsectionmark}[1]{\markright{\MakeUppercase{#1}}}
 
+%%%%%  PARAGRAPH  %%%%%
+
+\setparaheadstyle{\indent\normalfont\normalsize\bfseries}
+\setbeforeparaskip{0pt}%
+
 %%%%%  TIPBOX  %%%%%
 \setlength{\aweboxvskip}{3mm}
 \setlength{\aweboxleftmargin}{0.025\linewidth}
 \renewcommand{\tipbox}[1]{\awesomebox[gray]{0pt}{\faLightbulb}{gray}{\emph{#1}}}
+
+%%%%%  LISTS  %%%%%
+\setlist[enumerate]{itemindent=3em,labelwidth=1.5em,leftmargin=0pt,nosep}
+\setlist[itemize]{itemindent=3em,labelwidth=1.5em,leftmargin=0pt,nosep}
 
 %%%%%  CONTENT PAGE  %%%%%
 % Part
