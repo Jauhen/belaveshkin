@@ -22,12 +22,18 @@
 
 %%%%%  FONTS  %%%%%
 \setmainfont[
-  ItalicFont=SourceSerif4-Italic,%
-  BoldItalicFont=SourceSerif4-BoldItalic,%
-  BoldFont=SourceSerifPro-Bold,%
-]{SourceSerifPro-Regular}
-\setsansfont{SourceSansPro-Regular}
-\newfontfamily\TitlePageHuge[SizeFeatures={Size=40}]{SourceSerifPro-Regular}
+  Path=\string./fonts/,
+  ItalicFont=SourceSerif4-Italic.ttf,%
+  BoldItalicFont=SourceSerif4-BoldItalic.ttf,%
+  BoldFont=SourceSerif4-Bold.ttf,%
+]{SourceSerif4-Regular.ttf}
+\setsansfont[
+  Path=\string./fonts/,
+]{SourceSans3-Regular.ttf}
+\newfontfamily\TitlePageHuge[
+  Path=\string./fonts/,
+  SizeFeatures={Size=40},
+]{SourceSerif4_36pt-Medium.ttf}
 
 %%%%%  PAGE DIMENTIONS  %%%%%
 \marginparwidth = 0 mm
@@ -165,13 +171,15 @@
 \setlist[itemize]{itemindent=3em,labelwidth=1.5em,leftmargin=0pt,nosep}
 
 %%%%%  CONTENT PAGE  %%%%%
+\setpnumwidth{2em}
 % Part
 \cftpagenumbersoff{part}
 \setlength{\cftbeforepartskip}{10pt \@plus\p@}
 % Chapter
 \renewcommand*{\cftchapterfont}{\normalfont}
 \renewcommand*{\cftchapterpagefont}{\normalfont}
-\renewcommand*{\cftchapteraftersnum}{.~~}
+\renewcommand*{\cftchapteraftersnum}{.}
+\setlength{\cftchapternumwidth}{1.75em}
 \renewcommand*{\cftchapterleader}{\cftchapterfont\cftdotfill{\cftchapterdotsep}}
 \renewcommand*{\cftchapterdotsep}{\cftdotsep}
 \setlength{\cftbeforechapterskip}{0em \@plus\p@}
