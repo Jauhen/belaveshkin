@@ -1,0 +1,88 @@
+\documentclass[ebook,10pt,openany]{memoir}
+
+\usepackage{belaveshkin}
+\addto\captionsbelarusian{\renewcommand{\chaptername}{Правіла}}
+\renewcommand*{\cftchaptername}{Правіла~}
+
+\author{Андрусь Белавешкін}
+\title{Што і калі есьці}
+\date{2020 Пераклад 2022}
+
+% \includeonly{nutrition/chapter3}
+
+\begin{document}
+
+\begin{titlingpage}
+  \TitlePageFormat{Андрусь\ \ Белавешкін}
+      {Што\ \ і\ \ калі\ \ есьці}
+      {Як\ \ знайсьці\ \ залатую\ \ сярэдзіну між\ \ голадам\ \ і\ \ пераяданьнем}
+      {2020, Пераклад 2022}
+
+\include{nutrition/summary}
+
+\end{titlingpage}
+
+\pagestyle{headings}
+\setcounter{page}{3}
+\setcounter{tocdepth}{1}
+\tableofcontents*
+\clearpage
+
+\include{nutrition/intro}
+
+\part{Асноўныя правілы рэжыму харчаваньня}
+
+\include{nutrition/chapter1}
+\include{nutrition/chapter2}
+\include{nutrition/chapter3}
+\include{nutrition/chapter4}
+\include{nutrition/chapter5}
+\include{nutrition/chapter6}
+
+\part{Удасканаленьне рэжыму}
+
+\include{nutrition/chapter7}
+\include{nutrition/chapter8}
+\include{nutrition/chapter9}
+\include{nutrition/chapter10}
+\include{nutrition/chapter11}
+\include{nutrition/chapter12}
+
+\part{Асноўныя правілы выбару прадуктаў}
+
+\include{nutrition/chapter13}
+\include{nutrition/chapter14}
+\include{nutrition/chapter15}
+\include{nutrition/chapter16}
+\include{nutrition/chapter17}
+\include{nutrition/chapter18}
+
+\part{Прадукты}
+
+\include{nutrition/chapter19}
+\include{nutrition/chapter20}
+\include{nutrition/chapter21}
+\include{nutrition/chapter22}
+\include{nutrition/chapter23}
+\include{nutrition/chapter24}
+
+\setcounter{chapter}{3}
+% change the chaptername from now on
+\renewcommand\chaptername{Разьдзел }
+% insert the change into the toc file
+\addtocontents{toc}{\protect\renewcommand\protect\cftchaptername{Разьдзел~}}
+\renewcommand{\theHchapter}{willpower\thechapter}
+
+\part{Бонус: частка~з~кнігі Воля да жыцьця}
+\include{willpower/chapter4}
+
+
+\clearpage
+\makeatletter
+\addtocontents{toc}{\protect\setlength{\cftbeforechapterskip}{10pt \@plus\p@}}
+\makeatother
+\addcontentsline{toc}{chapter}{Прадметны паказальнік}
+\markboth{\MakeUppercase{Прадметны}}{\MakeUppercase{паказальнік}}
+\printindex
+
+\end{document}
