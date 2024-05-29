@@ -1,0 +1,65 @@
+\documentclass[letterpaper,11pt,openany,twocolumn]{memoir}
+
+\usepackage{belaveshkin}
+\stockwidth=8.25in
+\textwidth=6.75 true in
+\textheight=9 true in
+\setcolsepandrule{0.35in}{0pt}
+% \flushbottom
+\addto\captionsbelarusian{\renewcommand{\chaptername}{Разьдзел}} 
+\renewcommand*{\cftchaptername}{Разьдзел }
+\makeatletter
+\setlength{\cftbeforechapterskip}{5pt \@plus\p@}
+\makeatother
+
+\setmainfont[
+  Path=\string./fonts/,
+  ItalicFont=SourceSerif4Subhead-It.ttf,%
+  BoldItalicFont=SourceSerif4Subhead-SemiboldIt.ttf,%
+  BoldFont=SourceSerif4Subhead-Semibold.ttf,%
+]{SourceSerif4Subhead-Regular.ttf}
+\setsansfont[
+  Path=\string./fonts/,
+]{SourceSans3-Regular.ttf}
+
+\author{Андрусь Белавешкін}
+\title{Воля да жыцьця}
+\date{Кіпр, Пафас, 2024}
+
+
+\begin{document}%
+% \CoverPic{willpower/cover.png}
+
+% \cleartooddpage
+\begin{titlingpage}
+  \TitlePageFormatBig{Андрусь~~~Белавешкін}
+      {Воля~~~~да~~~~жыцьця}
+      {дапаможнік~~~па\\ўсьвядомленным~~~здароўі}
+      {Кіпр, Пафас, 2024 \\~\\ (с) Беларусь, Менск, 2019}
+
+\end{titlingpage}
+
+\pagestyle{headings}
+\setcounter{page}{3}
+\setcounter{tocdepth}{1}
+\tableofcontents*
+\clearpage
+
+\include{willpower/intro}
+
+\include{willpower/chapter1}
+\include{willpower/chapter2}
+\include{willpower/chapter3}
+\include{willpower/chapter4}
+\include{willpower/chapter5}
+\include{willpower/chapter6}
+\include{willpower/chapter7}
+\include{willpower/chapter8}
+\include{willpower/chapter9}
+\include{willpower/chapter10}
+\include{willpower/chapter11}
+\include{willpower/chapter12}
+\include{willpower/chapter13}
+\include{willpower/chapter14}
+
+\end{document}
