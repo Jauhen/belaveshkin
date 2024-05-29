@@ -31,14 +31,17 @@
 \setsansfont[
   Path=\string./fonts/,
 ]{SourceSans3-Regular.ttf}
+\newfontfamily\TitlePageMedium[
+  Path=\string./fonts/,
+  SizeFeatures={Size=30},
+]{SourceSerif4_36pt-Medium.ttf}
 \newfontfamily\TitlePageHuge[
   Path=\string./fonts/,
   SizeFeatures={Size=40},
 ]{SourceSerif4_36pt-Medium.ttf}
-
 \newfontfamily\TitlePageHUGE[
   Path=\string./fonts/,
-  SizeFeatures={Size=55},
+  SizeFeatures={Size=57},
 ]{SourceSerif4_36pt-Medium.ttf}
 
 
@@ -118,9 +121,9 @@
     {\TitlePageHUGE 
     #2}\\[3em]
       \rule{0.70\textwidth}{1pt} \\[3em]
-      {\TitlePageHuge #3}
+      {\TitlePageMedium #3}
   \end{center}
-  \vspace{8cm}
+  \vspace{8.5cm}
   \begin{center}
     #4
   \end{center}  
