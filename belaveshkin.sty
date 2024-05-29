@@ -36,6 +36,12 @@
   SizeFeatures={Size=40},
 ]{SourceSerif4_36pt-Medium.ttf}
 
+\newfontfamily\TitlePageHUGE[
+  Path=\string./fonts/,
+  SizeFeatures={Size=55},
+]{SourceSerif4_36pt-Medium.ttf}
+
+
 %%%%%  PAGE DIMENTIONS  %%%%%
 \marginparwidth = 0 mm
 \oddsidemargin = 0 mm
@@ -96,6 +102,25 @@
       {\Huge #3}
   \end{center}
   \vspace{9cm}
+  \begin{center}
+    #4
+  \end{center}  
+}
+
+%%%%  TITLE PAGE BIG  %%%%%
+\newcommand{\TitlePageFormatBig}[4]{
+  \begin{center}
+    \vspace{1cm}
+    {\TitlePageHuge #1}
+  \end{center}
+  \vspace{4cm}
+  \begin{center}    
+    {\TitlePageHUGE 
+    #2}\\[3em]
+      \rule{0.70\textwidth}{1pt} \\[3em]
+      {\TitlePageHuge #3}
+  \end{center}
+  \vspace{8cm}
   \begin{center}
     #4
   \end{center}  
